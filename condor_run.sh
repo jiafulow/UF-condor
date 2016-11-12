@@ -1,5 +1,7 @@
 #!/bin/bash
 
+jobid=$1
+
 startup() {
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 export SCRAM_ARCH=slc6_amd64_gcc472
@@ -15,7 +17,7 @@ cd -
 }
 
 run() {
-amsim -C -i input_SingleMuon_oc_tt25.txt -o stubs_oc_tt25_400M.root -v 2 -n 400000000 >& stubs_oc_tt25_400M.log
+amsim -C -i input_SingleMuon_oc_tt25_${jobid}.txt -o stubs_oc_tt25_200M_${jobid}.root -v 2 -n 200000000 >& stubs_oc_tt25_200M_${jobid}.log
 }
 
 cleanup() {
@@ -25,6 +27,7 @@ ls -Al
 
 echo "Job submitted on host `hostname` on `date`"
 echo "System `uname -a`"
+echo ">>> arguments: $@"
 
 echo "startup ..."
 startup
