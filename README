@@ -1,0 +1,11 @@
+# Condor files:
+pack.py
+condor.jdl
+condor_run.sh
+res/
+
+# Condor commands:
+export X509_USER_PROXY=/tmp/x509up_u`id -u`
+voms-proxy-init -voms cms -valid 192:00
+python pack.py
+condor_submit condor.jdl

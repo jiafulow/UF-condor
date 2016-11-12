@@ -1,0 +1,6 @@
+*~
+*.log
+*.root
+
+default.tgz
+.checkfile.txt

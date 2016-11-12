@@ -1,0 +1,16 @@
+Universe                = vanilla
+Notification            = Error
+Executable              = condor_run.sh
+Arguments               = 1
+Transfer_Input_Files    = default.tgz, input/input_SingleMuon_oc_tt25.txt
+Output                  = res/job_$(Cluster)_$(Process).stdout
+Error                   = res/job_$(Cluster)_$(Process).stderr
+Log                     = res/job_$(Cluster)_$(Process).out
+Requirements            = (OpSys == "LINUX") && (Arch != "DUMMY")
+request_disk            = 100000000
+request_memory          = 3000
+use_x509userproxy       = TRUE
+x509userproxy           = $ENV(X509_USER_PROXY)
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+Queue 1
