@@ -1,0 +1,2 @@
+/uscms_data/d2/jiafu/L1TrackTrigger/CRAB_amsim_SLHC28p1/oc_tt25/stubs_oc_tt25_200M_1.root
+/uscms_data/d2/jiafu/L1TrackTrigger/CRAB_amsim_SLHC28p1/oc_tt25/stubs_oc_tt25_200M_2.root
