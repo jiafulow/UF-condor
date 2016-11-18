@@ -1,1 +1,1 @@
-root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/patternBank_oc_tt25_sf1_nz8_pt3_400M.root
+root://cmsxrootd.fnal.gov//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/patternBank_oc_tt25_sf1_nz8_pt3_400M.root
