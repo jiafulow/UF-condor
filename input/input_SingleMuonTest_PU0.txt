@@ -1,1 +1,1 @@
-root://cmsxrootd.fnal.gov//store/group/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/ocerri_20161003/SingleMuonTest_tt25_PU0_ntuple_100k.root
+root://cmsxrootd.fnal.gov//store/group/l1upgrades/SLHC/GEN/620_SLHC28p1/private-PU0/SingleMuonTest_oc_tt25_PU0_ntuple.root
