@@ -14,10 +14,11 @@ import pickle
 
 class UserTarball(object):
 
-    def __init__(self, name='default.tgz', mode='w:gz'):
+    def __init__(self, name='default.tgz', mode='w:gz', dereference=True):
         self.name = name
         self.mode = mode
-        self.sendPythonFolder = False
+        self.dereference = dereference
+        self.sendPythonFolder = True
         self.scriptExe = None
 
     def add_files(self, userFiles=None, excludeFiles=None):
@@ -40,7 +41,7 @@ class UserTarball(object):
             else:
                 return tarinfo
 
-        with tarfile.open(self.name, self.mode) as tar:
+        with tarfile.open(self.name, self.mode, dereference=self.dereference) as tar:
 
             # Tar up whole directories
             for directory in directories:
@@ -126,7 +127,7 @@ def main():
     print('[INFO   ] Using CMSSW_BASE: %s' % (os.environ['CMSSW_BASE']))
     print('[INFO   ] Using CMSSW_VERSION: %s' % (os.environ['CMSSW_VERSION']))
     tb = UserTarball()
-    tb.add_files(userFiles=[], excludeFiles=[])
+    tb.add_files(userFiles=["test_ntuple_TTI2023Upg14D_cfg.py","L1TrackNtupleMaker_cfg.py"], excludeFiles=[])
     print('[INFO   ] %s%s is created (%iM).%s' % ('\033[92m', tb.name, os.stat(tb.name).st_size >> 20, '\033[0m'))
 
     def add_check():
