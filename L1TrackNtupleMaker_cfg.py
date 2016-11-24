@@ -78,6 +78,22 @@ BeamSpotFromSim = cms.EDProducer("BeamSpotFromSimProducer")
 process.TT_step = cms.Path(process.TrackTriggerTTTracks)
 process.TTAssociator_step = cms.Path(process.TrackTriggerAssociatorTracks)
 
+## run tracklet integer emulation instead 
+#process.TTTracksFromPixelDigisInteger = cms.EDProducer("L1FPGATrackProducer",
+#                                                       fitPatternFile  = cms.FileInPath('SLHCUpgradeSimulations/L1TrackTrigger/test/fitpattern.txt'),
+#                                                       memoryModulesFile  = cms.FileInPath('SLHCUpgradeSimulations/L1TrackTrigger/test/memorymodules_full.dat'),
+#                                                       processingModulesFile  = cms.FileInPath('SLHCUpgradeSimulations/L1TrackTrigger/test/processingmodules_full.dat'),
+#                                                       wiresFile  = cms.FileInPath('SLHCUpgradeSimulations/L1TrackTrigger/test/wires_full.dat')
+#)
+#process.TrackTriggerTTTracksInteger = cms.Sequence(process.BeamSpotFromSim*process.TTTracksFromPixelDigisInteger)
+#process.TT_step_Integer = cms.Path(process.TrackTriggerTTTracksInteger)
+#
+#from SimTracker.TrackTriggerAssociation.TrackTriggerAssociator_cff import *
+#
+#process.TTTrackAssociatorInteger = TTTrackAssociatorFromPixelDigis.clone()
+#process.TTTrackAssociatorInteger.TTTracks = cms.VInputTag( cms.InputTag("TTTracksFromPixelDigisInteger", "Level1TTTracks") )
+#process.TTAssociator_step_Integer = cms.Path( process.TTTrackAssociatorInteger )
+
 
 ############################################################
 # primary vertex producer 
@@ -85,6 +101,7 @@ process.TTAssociator_step = cms.Path(process.TrackTriggerAssociatorTracks)
 
 process.load("SLHCUpgradeSimulations.L1TrackTrigger.L1TkPrimaryVertexProducer_cfi")
 process.L1TkPrimaryVertex.L1TrackInputTag = cms.InputTag("TTTracksFromPixelDigis","Level1TTTracks")
+process.L1TkPrimaryVertex.L1Tk_nPar = cms.int32(4)   ## use 4 or 5 parameter track fit
 process.pL1TkPrimaryVertex = cms.Path( process.L1TkPrimaryVertex )
 
 process.L1TkPrimaryVertexMC = process.L1TkPrimaryVertex.clone()
@@ -103,12 +120,12 @@ process.pL1TkPrimaryVertexMC = cms.Path( process.L1TkPrimaryVertexMC )
 #      inclusively, store all TPs (also those not from primary interaction, if available in samples you are running on) = 1
 ############################################################
 
-process.L1TrackNtuple = cms.EDAnalyzer('L1TrackNtupleMaker',
+process.L1TrackNtuple = cms.EDAnalyzer('L1TrackNtupleMaker2',
                                        MyProcess = cms.int32(1),
                                        Slim = cms.bool(True),            # only keep the branches we really need
                                        DebugMode = cms.bool(False),      # printout lots of debug statements
                                        SaveAllTracks = cms.bool(True),   # save *all* L1 tracks, not just truth matched to primary particle
-                                       SaveStubs = cms.bool(False),      # save some info for *all* stubs
+                                       SaveStubs = cms.bool(True),       # save some info for *all* stubs
                                        L1Tk_nPar = cms.int32(4),         # use 4 or 5-parameter L1 track fit ??
                                        L1Tk_minNStub = cms.int32(4),     # L1 tracks with >= 4 stubs
                                        TP_minNStub = cms.int32(4),       # require TP to have >= X number of stubs associated with it

@@ -172,7 +172,7 @@ Error                   = {LOGNAME}/{JOBNAME}_$(Cluster)_$(Process).stderr
 Log                     = {LOGNAME}/{JOBNAME}_$(Cluster)_$(Process).out
 Requirements            = (OpSys == "LINUX") && (Arch != "DUMMY")
 request_disk            = 1000000
-request_memory          = 3500
+request_memory          = 4500
 use_x509userproxy       = TRUE
 x509userproxy           = $ENV(X509_USER_PROXY)
 should_transfer_files   = YES
@@ -331,11 +331,12 @@ cat {SOURCEFILE}
 #{ANALYZER} $@
 ss=sf1_nz8
 bank=root://cmsxrootd.fnal.gov//store/group/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/patternBank_oc_tt25_sf1_nz8_pt3_400M.root
-patt=5532635
+mbank=root://cmsxrootd.fnal.gov//store/group/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/m8_patternBank_oc_tt25_sf1_nz8_pt3_400M.root
+patt=1129402
 psetone=test_ntuple_TTI2023Upg14D_cfg.py
 psettwo=L1TrackNtupleMaker_cfg.py
 cp $SOFTWARE_DIR/$psetone $SOFTWARE_DIR/$psettwo .
-cmsRun $psetone inputFiles_load=input.txt && amsim -R -i ntuple.root -b $bank -o roads.root -v 2 -s $ss && amsim -T -i roads.root -o tracks.root -v 2 --maxPatterns $patt && cmsRun $psettwo inputFiles_load=input.txt
+cmsRun $psetone inputFiles_load=input.txt && amsim -R -i ntuple.root -b $bank -o roads.root -v 2 -s $ss && amsim -Q -i roads.root -b $mbank -o m8_roads.root -v 2 && amsim -T -i m8_roads.root -o tracks.root -v 2 --maxPatterns $patt && cmsRun $psettwo inputFiles_load=input.txt
 EXIT_STATUS=$?
 if [ $EXIT_STATUS -ne 0 ]; then echo "analyzer exited with status=$EXIT_STATUS"; exit $EXIT_STATUS; fi
 
@@ -351,7 +352,7 @@ EXIT_STATUS=$?
 if [ $EXIT_STATUS -ne 0 ]; then echo "transfer output exited with status=$EXIT_STATUS"; exit $EXIT_STATUS; fi
 
 # Done
-rm input.txt modify_source_file.py PSet.* *.tgz *.root
+rm input.txt modify_source_file.py *.tgz *.root $psetone $psettwo
 echo "Exit status=$EXIT_STATUS"
 echo "Job finished on host `hostname` on `date`"
 '''.format(**self.config)
