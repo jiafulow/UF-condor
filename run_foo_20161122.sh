@@ -8,8 +8,10 @@ else
 fi
 
 # Condor jobs
-#python jobify.py NoAnalyzer TTbar_PU0_foo TTbar_PU0_foo whatever 2016 5
-python jobify.py NoAnalyzer TTbar_PU200_foo TTbar_PU200_foo whatever 2016 5
+# [analyzer] [dataset] [datasetgroup] [selection] [period] [njobs]
+
+#python jobify.py NoAnalyzer TTbar_PU0_foo TTbar_PU0_foo pdgid13 2016 5
+python jobify.py NoAnalyzer TTbar_PU200_foo TTbar_PU200_foo pdgid13 2016 5
 
 # When the condor jobs are done, do this:
 #python retrieve.py

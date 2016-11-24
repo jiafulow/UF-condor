@@ -335,8 +335,9 @@ mbank=root://cmsxrootd.fnal.gov//store/group/l1upgrades/SLHC/GEN/620_SLHC25p3_re
 patt=1129402
 psetone=test_ntuple_TTI2023Upg14D_cfg.py
 psettwo=L1TrackNtupleMaker_cfg.py
+selection={SELECTION}
 cp $SOFTWARE_DIR/$psetone $SOFTWARE_DIR/$psettwo .
-cmsRun $psetone inputFiles_load=input.txt && amsim -R -i ntuple.root -b $bank -o roads.root -v 2 -s $ss && amsim -Q -i roads.root -b $mbank -o m8_roads.root -v 2 && amsim -T -i m8_roads.root -o tracks.root -v 2 --maxPatterns $patt && cmsRun $psettwo inputFiles_load=input.txt
+cmsRun $psetone inputFiles_load=input.txt && amsim -R -i ntuple.root -b $bank -o roads.root -v 2 -s $ss && amsim -Q -i roads.root -b $mbank -o m8_roads.root -v 2 && amsim -T -i m8_roads.root -o tracks.root -v 2 --maxPatterns $patt && cmsRun $psettwo inputFiles_load=input.txt selection=$selection
 EXIT_STATUS=$?
 if [ $EXIT_STATUS -ne 0 ]; then echo "analyzer exited with status=$EXIT_STATUS"; exit $EXIT_STATUS; fi
 

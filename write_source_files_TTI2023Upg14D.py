@@ -130,16 +130,19 @@ def write_source_files():
     #if name != "TTbar_PU0":  continue  # test
 
     api=DbsApi(url='https://cmsweb.cern.ch/dbs/prod/global/DBSReader')
-    output = api.listFiles(dataset=dbsname)
+    output = api.listFiles(dataset=dbsname, validFileOnly=0, detail=1)
     #print len(output), type(output), output[0], type(output[0])
+    output2 = [out['logical_file_name'] for out in output if out['is_file_valid']]
     filename = "%s/%s.txt" % (directory, name)
+    print "Writing %s ..." % filename
     with open(filename, 'w') as outfile:
-      for out in output:
-        outfile.write(out['logical_file_name']+'\n')
+      for out2 in output2:
+        outfile.write(out2+'\n')
 
     filename = "%s/%s_part.txt" % (directory, name)
+    print "Writing %s ..." % filename
     with open(filename, 'w') as outfile:
-      for out in output[:100]:
-        outfile.write(out['logical_file_name']+'\n')
+      for out2 in output2[:100]:
+        outfile.write(out2+'\n')
 
 write_source_files()
