@@ -19,6 +19,8 @@ cd -
 #run() {
 ## [REQUIRE] Transfer_Input_Files    = default.tgz, input/input_SingleMuon_oc_tt25_1.txt, input/input_SingleMuon_oc_tt25_2.txt
 #amsim -C -i input_SingleMuon_oc_tt25_${jobid}.txt -o stubs_oc_tt25_200M_${jobid}.root -v 2 -n 200000000 >& stubs_oc_tt25_200M_${jobid}.log
+#amsim -C -i input_SingleMuon_oc_tt33_${jobid}.txt -o stubs_oc_tt33_200M_${jobid}.root -v 2 -n 200000000 >& stubs_oc_tt33_200M_${jobid}.log
+#amsim -C -i input_SingleMuon_oc_tt41_${jobid}.txt -o stubs_oc_tt41_200M_${jobid}.root -v 2 -n 200000000 >& stubs_oc_tt41_200M_${jobid}.log
 #}
 
 run() {
