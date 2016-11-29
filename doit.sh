@@ -1,3 +1,8 @@
+#!/bin/bash
+
+# never run the whole thing!
+exit 0;
+
 jobid=1
 amsim -C -i input/input_SingleMuon_oc_tt25_${jobid}.txt -o stubs_oc_tt25_200M_${jobid}.root -v 2 -n 200000000 >& stubs_oc_tt25_200M_${jobid}.log &
 jobid=2
