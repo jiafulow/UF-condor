@@ -142,7 +142,7 @@ def write_source_files():
     filename = "%s/%s_part.txt" % (directory, name)
     print "Writing %s ..." % filename
     with open(filename, 'w') as outfile:
-      for out2 in output2[:100]:
+      for out2 in output2[:200]:
         outfile.write(out2+'\n')
 
 write_source_files()
