@@ -5,13 +5,14 @@ Arguments               = 1
 #Transfer_Input_Files    = default.tgz, input/input_SingleMuon_oc_tt25_1.txt, input/input_SingleMuon_oc_tt25_2.txt
 #Transfer_Input_Files    = default.tgz, input/input_SingleMuon_oc_tt33_1.txt, input/input_SingleMuon_oc_tt33_2.txt
 #Transfer_Input_Files    = default.tgz, input/input_SingleMuon_oc_tt41_1.txt, input/input_SingleMuon_oc_tt41_2.txt
-Transfer_Input_Files    = default.tgz, bank/patternBank_oc_tt25_sf1_nz8_pt3_400M.txt
+#Transfer_Input_Files    = default.tgz, bank/patternBank_oc_tt25_sf1_nz8_pt3_400M.txt
+Transfer_Input_Files    = default.tgz, bank/patternBank_oc_tt25_sf1_nz8_pt2_400M.txt
 Output                  = res/job_$(Cluster)_$(Process).stdout
 Error                   = res/job_$(Cluster)_$(Process).stderr
 Log                     = res/job_$(Cluster)_$(Process).out
 Requirements            = (OpSys == "LINUX") && (Arch != "DUMMY")
 request_disk            = 40000000
-request_memory          = 3500
+request_memory          = 5000
 use_x509userproxy       = TRUE
 x509userproxy           = $ENV(X509_USER_PROXY)
 should_transfer_files   = YES

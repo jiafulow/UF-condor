@@ -3,16 +3,24 @@ xrdcp -f stubs_oc_tt25_200M_1.root root://cmseos:1094//store/user/l1upgrades/SLH
 xrdcp -f stubs_oc_tt25_200M_1.log  root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
 xrdcp -f stubs_oc_tt25_200M_2.root root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
 xrdcp -f stubs_oc_tt25_200M_2.log  root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
+xrdcp -f stubs_oc_tt25_pt2_200M_1.root root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
+xrdcp -f stubs_oc_tt25_pt2_200M_1.log  root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
+xrdcp -f stubs_oc_tt25_pt2_200M_2.root root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
+xrdcp -f stubs_oc_tt25_pt2_200M_2.log  root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
 
 # amsim -B
 xrdcp -f patternBank_oc_tt25_sf1_nz8_pt3_200M.root root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
 xrdcp -f patternBank_oc_tt25_sf1_nz8_pt3_200M.log  root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
 xrdcp -f patternBank_oc_tt25_sf1_nz8_pt3_400M.root root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
 xrdcp -f patternBank_oc_tt25_sf1_nz8_pt3_400M.log  root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
+xrdcp -f patternBank_oc_tt25_sf1_nz8_pt2_400M.root root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
+xrdcp -f patternBank_oc_tt25_sf1_nz8_pt2_400M.log  root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
 
 # amsim -P
 xrdcp -f m8_patternBank_oc_tt25_sf1_nz8_pt3_400M.root root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
 xrdcp -f m8_patternBank_oc_tt25_sf1_nz8_pt3_400M.log  root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
+xrdcp -f m8_patternBank_oc_tt25_sf1_nz8_pt2_400M.root root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
+xrdcp -f m8_patternBank_oc_tt25_sf1_nz8_pt2_400M.log  root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/
 
 # amsim -R
 xrdcp -f roads_SingleMuonTest_PU0.root root://cmseos:1094//store/user/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/

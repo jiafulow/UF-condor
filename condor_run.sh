@@ -25,7 +25,8 @@ cd -
 
 run() {
 # [REQUIRE] Transfer_Input_Files    = default.tgz, bank/patternBank_oc_tt25_sf1_nz8_pt3_400M.txt
-amsim -P -i patternBank_oc_tt25_sf1_nz8_pt3_400M.txt -o m8_patternBank_oc_tt25_sf1_nz8_pt3_400M.root -v 2 >& m8_patternBank_oc_tt25_sf1_nz8_pt3_400M.log
+#amsim -P -i patternBank_oc_tt25_sf1_nz8_pt3_400M.txt -o m8_patternBank_oc_tt25_sf1_nz8_pt3_400M.root -v 2 >& m8_patternBank_oc_tt25_sf1_nz8_pt3_400M.log
+amsim -P -i patternBank_oc_tt25_sf1_nz8_pt2_400M.txt -o m8_patternBank_oc_tt25_sf1_nz8_pt2_400M.root -v 2 >& m8_patternBank_oc_tt25_sf1_nz8_pt2_400M.log
 }
 
 cleanup() {

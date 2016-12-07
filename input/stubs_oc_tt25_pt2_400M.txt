@@ -1,0 +1,2 @@
+root://cmseos:1094//store/group/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/stubs_oc_tt25_pt2_200M_1.root
+root://cmseos:1094//store/group/l1upgrades/SLHC/GEN/620_SLHC25p3_results/jftest1/stubs_oc_tt25_pt2_200M_2.root

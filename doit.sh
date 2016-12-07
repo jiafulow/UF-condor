@@ -9,8 +9,10 @@ jobid=2
 amsim -C -i input/input_SingleMuon_oc_tt25_${jobid}.txt -o stubs_oc_tt25_200M_${jobid}.root -v 2 -n 200000000 >& stubs_oc_tt25_200M_${jobid}.log &
 
 amsim -B -i input/stubs_oc_tt25_400M.txt -o patternBank_oc_tt25_sf1_nz8_pt3_400M.root -v 2 -s sf1_nz8 --minPt 3 >& patternBank_oc_tt25_sf1_nz8_pt3_400M.log &
+amsim -B -i input/stubs_oc_tt25_pt2_400M.txt -o patternBank_oc_tt25_sf1_nz8_pt2_400M.root -v 2 -s sf1_nz8 --minPt 2 >& patternBank_oc_tt25_sf1_nz8_pt2_400M.log &
 
 amsim -P -i bank/patternBank_oc_tt25_sf1_nz8_pt3_400M.txt -o m8_patternBank_oc_tt25_sf1_nz8_pt3_400M.root -v 2 >& m8_patternBank_oc_tt25_sf1_nz8_pt3_400M.log &
+amsim -P -i bank/patternBank_oc_tt25_sf1_nz8_pt2_400M.txt -o m8_patternBank_oc_tt25_sf1_nz8_pt2_400M.root -v 2 >& m8_patternBank_oc_tt25_sf1_nz8_pt2_400M.log &
 
 amsim -R -i input/input_SingleMuonTest_PU0.txt -b bank/patternBank_oc_tt25_sf1_nz8_pt3_400M.txt -o roads_SingleMuonTest_PU0.root -v 2 -s sf1_nz8 -n 100000 >& roads_SingleMuonTest_PU0.log &
 amsim -R -i input/input_SinglePionTest_PU0.txt -b bank/patternBank_oc_tt25_sf1_nz8_pt3_400M.txt -o roads_SinglePionTest_PU0.root -v 2 -s sf1_nz8 -n 100000 >& roads_SinglePionTest_PU0.log &
